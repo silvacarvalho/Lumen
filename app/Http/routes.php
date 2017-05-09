@@ -11,16 +11,7 @@
 |
 */
 
-$app->get('/contato/novo', [
-    'as' => 'pessoa.create',
-    'uses' => 'PessoaController@create'
-]);
-
-$app->post('/contato', [
-    'as' => 'pessoa.store',
-    'uses' => 'PessoaController@store'
-]);
-
+// Rotas para o controler Agenda
 $app->get('/',[
     'as' => 'agenda.index',
     'uses'=>'AgendaController@index'
@@ -34,6 +25,15 @@ $app->get('/{letra}',[
 $app->post('/busca',[
     'as' => 'agenda.busca',
     'uses'=>'AgendaController@busca'
+]);
+// Fim Rotas controller Agenda
+
+//======================================================================================================================
+
+// Rotas para o controller Pessoa
+$app->get('/contato/novo', [
+    'as' => 'pessoa.create',
+    'uses' => 'PessoaController@create'
 ]);
 
 $app->get('/contato/{id}/apagar',[
@@ -51,6 +51,11 @@ $app->get('/contato/{id}/editar',[
     'uses'=>'PessoaController@alterar'
 ]);
 
+$app->post('/contato', [
+    'as' => 'pessoa.store',
+    'uses' => 'PessoaController@store'
+]);
+
 $app->put('/contato/{id}',[
     'as' => 'pessoa.update',
     'uses'=>'PessoaController@update'
@@ -60,15 +65,14 @@ $app->delete('/contato/{id}',[
     'as' => 'pessoa.destroy',
     'uses'=>'PessoaController@destroy'
 ]);
+// Fim Rotas controller Pessoa
 
+//======================================================================================================================
+
+// Rotas para o controller Telefone
 $app->get('/telefone/{id}/novo',[
     'as' => 'telefone.create',
     'uses'=>'TelefoneController@create'
-]);
-
-$app->post('/telefone', [
-    'as' => 'telefone.store',
-    'uses' => 'TelefoneController@store'
 ]);
 
 $app->get('/telefone/{id}/apagar',[
@@ -76,7 +80,13 @@ $app->get('/telefone/{id}/apagar',[
     'uses'=>'TelefoneController@delete'
 ]);
 
+$app->post('/telefone', [
+    'as' => 'telefone.store',
+    'uses' => 'TelefoneController@store'
+]);
+
 $app->delete('/telefone/{id}',[
     'as' => 'telefone.destroy',
     'uses'=>'TelefoneController@destroy'
 ]);
+// Fim Rotas controller Telefone

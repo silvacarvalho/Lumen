@@ -33,8 +33,7 @@ class PessoaController extends Controller
         }
 
         $pessoa = Pessoa::create($request->all());
-        $id = $pessoa->id;
-        return redirect()->route('pessoa.detalhes', ['id' => $id]);
+        return redirect()->route('pessoa.detalhes', ['id' => $pessoa->id]);
     }
 
     public function delete($id)

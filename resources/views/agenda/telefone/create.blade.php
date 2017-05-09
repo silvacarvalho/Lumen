@@ -5,19 +5,21 @@
             <div class="panel-heading">{{ $pessoa->nome }}</div>
             <div class="panel-body">
                 <form action="{{ route('telefone.store') }}" method="post">
+                    <input type="hidden" value="{{ $pessoa->id }}" name="pessoa_id">
                     <div class="form-group">
                         <label for="descricao">Descrição</label>
                         <select name="descrição" class="form-control" placeholder="Descição do telefone">
                             <option value="">:: Selecione ::</option>
-                            <option value="Comercial">Comercial</option>
-                            <option value="Residencial">Residencial</option>
-                            <option value="Recados">Recados</option>
-                            <option value="Celular">Celular</option>
+                            <option value="Comercial" {{ (old('descrição') == 'Comercial') ? 'selected': false }}>Comercial</option>
+                            <option value="Residencial" {{ (old('descrição') == 'Residencial') ? 'selected': false }}>Residencial</option>
+                            <option value="Recados" {{ (old('descrição') == 'Recados') ? 'selected': false }}>Recados</option>
+                            <option value="Celular" {{ (old('descrição') == 'Celular') ? 'selected': false }}>Celular</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="telefone">Telefone</label>
-                        <input type="text" class="form-control" name="telefone" id="telefone" placeholder="(99) 9999 9999">
+                        <input type="text" class="form-control" name="telefone" id="telefone"
+                               placeholder="(99) 9999 9999" value="{{ old('telefone')}}">
                     </div>
                     <button type="submit" class="btn btn-default">Salvar</button>
                 </form>

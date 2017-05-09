@@ -10,6 +10,7 @@ namespace CodeAgenda\Http\Controllers;
 
 use CodeAgenda\Entities\Pessoa;
 use CodeAgenda\Entities\Telefone;
+use CodeAgenda\Entities\Functions;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -30,10 +31,13 @@ class TelefoneController extends Controller
         ]);
 
         if($validator->fails()){
-            return redirect()->route('telefone.create')->withErrors($validator)->withInput();
+            return redirect()->route('telefone.create', ['id' => $request->pessoa_id])->withErrors($validator)->withInput();
         }
 
-
+        $request->merge(Functions::MapPhoneData($request->all()));
+//        dd($request->except('telefone'));
+        Telefone::create($request->except('telefone'));
+        return redirect()->route('pessoa.detalhes', ['id' => $request->pessoa_id]);
     }
 
     public function delete($id)
