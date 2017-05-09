@@ -2,6 +2,10 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/bootstrap" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/font-awesome" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/jquery" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/bower_components/jquery-mask-plugin" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/danielstjules/stringy" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/inflector" />
@@ -75,6 +79,10 @@
     <orderEntry type="module-library">
       <library name="PHP" type="php">
         <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bower_components/bootstrap" />
+          <root url="file://$MODULE_DIR$/vendor/bower_components/font-awesome" />
+          <root url="file://$MODULE_DIR$/vendor/bower_components/jquery" />
+          <root url="file://$MODULE_DIR$/vendor/bower_components/jquery-mask-plugin" />
           <root url="file://$MODULE_DIR$/vendor/composer" />
           <root url="file://$MODULE_DIR$/vendor/danielstjules/stringy" />
           <root url="file://$MODULE_DIR$/vendor/doctrine/inflector" />
@@ -144,6 +152,10 @@
           <root url="file://$MODULE_DIR$/vendor/webmozart/assert" />
         </CLASSES>
         <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bower_components/bootstrap" />
+          <root url="file://$MODULE_DIR$/vendor/bower_components/font-awesome" />
+          <root url="file://$MODULE_DIR$/vendor/bower_components/jquery" />
+          <root url="file://$MODULE_DIR$/vendor/bower_components/jquery-mask-plugin" />
           <root url="file://$MODULE_DIR$/vendor/composer" />
           <root url="file://$MODULE_DIR$/vendor/danielstjules/stringy" />
           <root url="file://$MODULE_DIR$/vendor/doctrine/inflector" />
