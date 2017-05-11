@@ -80,6 +80,16 @@ $app->get('/telefone/{id}/apagar',[
     'uses'=>'TelefoneController@delete'
 ]);
 
+$app->get('/telefone/{id}/editar',[
+    'as' => 'telefone.alterar',
+    'uses'=>'TelefoneController@alterar'
+]);
+
+$app->put('/telefone/{id}',[
+    'as' => 'telefone.update',
+    'uses'=>'TelefoneController@update'
+]);
+
 $app->post('/telefone', [
     'as' => 'telefone.store',
     'uses' => 'TelefoneController@store'

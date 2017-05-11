@@ -5,8 +5,13 @@
 <table class="table table-responsive hover">
     @foreach($telefones as $telefone)
         <tr>
-            <td>{{ $telefone->descriçao }}</td>
+            <td>{{ $telefone->descrição }}</td>
             <td>{{ $telefone->numero }}</td>
+            <td>
+                <a href="{{ route('telefone.alterar', ['id' => $telefone->id]) }}">
+                    <i class="fa fa-edit" data-toggle="tooltip" data-placement="top" title="Alterar contato"></i>
+                </a>
+            </td>
             <td>
                 <a href="{{ route('telefone.delete', ['id' => $telefone->id]) }}">
                     <i class="fa fa-minus-circle" data-toggle="tooltip" data-placement="top" title="Apagar contato"></i>

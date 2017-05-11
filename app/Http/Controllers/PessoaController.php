@@ -68,7 +68,7 @@ class PessoaController extends Controller
         ]);
 
         if($validator->fails()){
-            return redirect()->route('pessoa.alterar')->withErrors($validator)->withInput();
+            return redirect()->route('pessoa.alterar', ['id' => $pessoa->id])->withErrors($validator)->withInput();
         }
 
         $pessoa->fill($request->all())->save();

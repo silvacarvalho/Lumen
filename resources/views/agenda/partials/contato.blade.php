@@ -1,4 +1,4 @@
-<div class="panel panel-default @if($pessoa->sexo == "Masculino") panel-info @else panel-warning @endif">
+<div class="panel panel-default @if($pessoa->sexo == "Masculino") panel-info @else panel-danger @endif">
     <div class="panel-heading">
         <h3 class="panel-title">
             @if($pessoa->sexo == "Masculino")

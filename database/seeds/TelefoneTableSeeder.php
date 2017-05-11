@@ -11,6 +11,6 @@ class TelefoneTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\CodeAgenda\Entities\Telefone::class, 30)->create();
+        factory(\CodeAgenda\Entities\Telefone::class, 160)->create();
     }
 }

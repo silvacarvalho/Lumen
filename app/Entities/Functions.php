@@ -12,10 +12,9 @@ namespace CodeAgenda\Entities;
 class Functions
 {
 
-    public static function MapPhoneData( $data = false )
+    public static function MapPhoneData( $data = false , $id)
     {
-        $retorno['pessoa_id'] = $data['pessoa_id'];
-        $retorno['descrição'] = $data['descrição'];
+        $retorno['pessoa_id'] = $id;
         $explode = explode(" ", $data['telefone']);
 
         $retorno['codpais'] = preg_replace("/\D/","", $explode[0]);

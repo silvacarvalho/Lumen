@@ -13,6 +13,7 @@ use CodeAgenda\Entities\Telefone;
 use CodeAgenda\Entities\Functions;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 class TelefoneController extends Controller
 {
@@ -35,7 +36,7 @@ class TelefoneController extends Controller
         }
 
         $request->merge(Functions::MapPhoneData($request->all()));
-//        dd($request->except('telefone'));
+
         Telefone::create($request->except('telefone'));
         return redirect()->route('pessoa.detalhes', ['id' => $request->pessoa_id]);
     }
@@ -52,6 +53,34 @@ class TelefoneController extends Controller
         Telefone::destroy($id);
 
         return redirect()->route('agenda.index');
+    }
+
+    public function alterar($id)
+    {
+        $telefone = Telefone::find($id);
+        $pessoa = $telefone->pessoa;
+        return view('agenda.telefone.editar', compact('telefone', 'pessoa'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $telefone = Telefone::find($id);
+        $pessoa = $telefone->pessoa;
+
+        $validator = Validator::make($request->all(), [
+            'descrição'     => 'required',
+            'telefone'      => 'required'
+        ]);
+
+        if($validator->fails()){
+            return redirect()->route('telefone.alterar', ['id' => $id])->withErrors($validator)->withInput();
+        }
+
+        $request->merge(Functions::MapPhoneData($request->all(), $id));
+
+        DB::table('telefones')->where('id', $id)->update($request->except('telefone', '_method', 'pessoa_id'));
+
+        return redirect()->route('pessoa.detalhes', ['id' => $pessoa->id]);
     }
 
 }
