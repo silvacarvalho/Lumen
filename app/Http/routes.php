@@ -100,3 +100,44 @@ $app->delete('/telefone/{id}',[
     'uses'=>'TelefoneController@destroy'
 ]);
 // Fim Rotas controller Telefone
+
+//======================================================================================================================
+
+// Rotas para o controller E-Mail
+
+$app->get('/email/{id}/novo',[
+    'as' => 'email.create',
+    'uses' => 'EmailController@create'
+]);
+
+$app->post('/email', [
+    'as' => 'email.store',
+    'uses' => 'EmailController@store'
+]);
+
+$app->post('/email/{id}/apagar', [
+    'as' => 'email.delete',
+    'uses' => 'EmailController@delete'
+]);
+
+$app->get('/email/{id}/editar', [
+    'as' => 'email.alterar',
+    'uses' => 'EmailController@alterar'
+]);
+
+$app->put('/email/{id}', [
+    'as' => 'email.update',
+    'uses' => 'EmailController@update'
+]);
+
+$app->get('/email/{id}/apagar', [
+    'as' => 'email.delete',
+    'uses' => 'EmailController@delete'
+]);
+
+$app->delete('/email/{id}', [
+    'as' => 'email.destroy',
+    'uses' => 'EmailController@destroy'
+]);
+
+// Fim Rotas controller E-Mail

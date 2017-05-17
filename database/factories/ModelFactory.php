@@ -37,6 +37,14 @@ $factory->define(\CodeAgenda\Entities\Telefone::class, function ($faker){
         'ddd'       => $faker->numberBetween(11, 91),
         'prefixo'   => $faker->randomNumber(4),
         'sufixo'    => $faker->randomNumber(4),
-        'pessoa_id' => $faker->numberBetween(1, 30)
+        'pessoa_id' => $faker->numberBetween(1, 80)
+    ];
+});
+
+$factory->define(\CodeAgenda\Entities\Email::class, function ($faker){
+    return [
+        'descrição' => $faker->randomElement(['Pessoal', 'Profissional']),
+        'email'     => $faker->email,
+        'pessoa_id' => $faker->numberBetween(1, 80)
     ];
 });

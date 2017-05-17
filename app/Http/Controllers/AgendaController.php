@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: rafael
- * Date: 05/05/17
- * Time: 15:54
- */
-
 
 namespace CodeAgenda\Http\Controllers;
 
@@ -32,5 +25,12 @@ class AgendaController extends Controller
         }
 
         return view('agenda.agenda', compact('pessoas', 'letras'));
+    }
+
+
+    public function layoutNovo( $letra = false )
+    {
+        $pessoas = Pessoa::where('apelido', 'like', $letra . '%')->get();
+        return view('agenda.home', compact('pessoas'));
     }
 }
